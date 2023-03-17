@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     'job',
     'chat',
     'corsheaders',
+    'payment',
+    'messaging',
 ]
 
 MIDDLEWARE = [
@@ -156,9 +158,13 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with',
 ]
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_RENDERER_CLASSES': (
-#         'rest_framework.renderers.JSONRenderer',
-#     )
-# }
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ]
+}
+
+SITE_URL='http://localhost:3000'
+
+STRIPE_SECRET_KEY='sk_test_51L1o5DIiUKs0u5qlIwyYp6YFjtzU0785wb8GG48qCgTFzFMNAWYmKqFNcovs0IsRAKXJaRQQU4TyY2Rz5IwAcr8a002nVfm1uI'
 
